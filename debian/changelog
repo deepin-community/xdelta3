@@ -1,5 +1,141 @@
-template-repository (1.0-1) unstable; urgency=medium
+xdelta3 (3.0.11-dfsg-1.2) unstable; urgency=medium
 
-  * Initial release
+  * Non-maintainer upload.
+  * Test-Depends: liblzma-dev
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Andreas Tille <tille@debian.org>  Fri, 25 Feb 2022 21:44:37 +0100
+
+xdelta3 (3.0.11-dfsg-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Jeremy Bicha ]
+  * clean up packaging
+    Closes: #895957, #965883
+
+  [ Andreas Tille ]
+  * Create Git repository on Salsa and add Vcs fields
+  * Trim trailing whitespace.
+  * Fill in Homepage field.
+  * Set debhelper-compat version in Build-Depends.
+  * Update standards version to 4.6.0, no changes needed.
+  * Avoid explicitly specifying -Wl,--as-needed linker flag.
+  * Add debian/salsa-ci.yml
+  * DEP5
+  * debhelper 13
+  * Add watch file
+  * Add autopkgtest
+
+ -- Andreas Tille <tille@debian.org>  Thu, 24 Feb 2022 11:03:55 +0100
+
+xdelta3 (3.0.11-dfsg-1) unstable; urgency=medium
+
+  * New upstream release;
+    -  disable obsolete debian patches : regtest_size_t  printf_uint64
+	  Q_not_u CVE-2014-9765.patch fix_lzma_test.patch
+    -  refreshed patch : manpage_lzma
+    -  kept patch :  unversioned_shebangs.diff
+  * Deleted obsolete watch file
+  * Bump standards version
+  * Solves "upstream has some bugfixes for 3.0.8 release.", thanks to
+    shirish शिरीष (Closes: #779976).
+
+ -- A Mennucc1 <mennucc1@debian.org>  Sat, 27 Feb 2016 11:40:46 +0100
+
+xdelta3 (3.0.8-dfsg-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update CVE-2014-9765.patch.
+    Add as well tests that the default appheader works.
+  * Fix LZMA tests (Closes: #740284)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 19 Feb 2016 13:23:39 +0100
+
+xdelta3 (3.0.8-dfsg-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * CVE-2014-9765: buffer overflow in main_get_appheader (Closes: #814067)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 10 Feb 2016 21:33:10 +0100
+
+xdelta3 (3.0.8-dfsg-1) unstable; urgency=low
+
+  * new upstream release (only minor changes)
+  * Bug fix: "Please add watch file", thanks to Dmitry Shachnev (Closes:
+    #735273).
+
+ -- A Mennucc1 <mennucc1@debian.org>  Thu, 20 Feb 2014 12:20:22 +0100
+
+xdelta3 (3.0.7-dfsg-2) unstable; urgency=low
+
+  * fix FTBFS in testing/regtest.cc
+  * add liblzma to build dependencies
+  * fix compiling warnings
+
+ -- A Mennucc1 <mennucc1@debian.org>  Mon, 17 Jun 2013 08:56:43 +0200
+
+xdelta3 (3.0.7-dfsg-1) unstable; urgency=low
+
+  * New upstream release (Closes: #691337).
+  * Switch build system to CDBS
+  * Drop 'python-xdelta3' package, currently broken.
+  * Bump standards version.
+
+ -- A Mennucc1 <mennucc1@debian.org>  Sun, 09 Jun 2013 12:08:02 +0200
+
+xdelta3 (3.0.0.dfsg-1) unstable; urgency=low
+
+  * New upstream release, "3.0 is a stable release series"
+  * Remove unused build-dependency 'cdbs'
+  * Thanks Luca for NMU
+
+ -- A Mennucc1 <mennucc1@debian.org>  Sun, 29 May 2011 22:59:32 +0200
+
+xdelta3 (0y.dfsg-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Convert package to dh_python2 (Closes: #617151).
+    + debian/control:
+      - Build-depend on python-all-dev (>= 2.6.6-3~).
+      - Drop python-central from Build-Depends.
+      - Define X-Python-Version field.
+      - Drop XB-Python-Version field.
+    + debian/pycompat:
+      - Useless, removed.
+    + debian/rules:
+      - Replace dh_pycentral with dh_python2.
+  * debian/patches/unversioned_shebangs.diff:
+    - Do not use versioned shebangs (Closes: #625751).
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sun, 08 May 2011 13:28:08 +0200
+
+xdelta3 (0y.dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    - Can read source from pipe/fifo , new -B option.
+    - Has manpage (thanks Leo (costela) Antunes)
+  * Convert to 3.0 (quilt) source format
+  * Correct lintian warnings:
+    - Update standards version,
+    - add misc:Depends
+
+ -- A Mennucc1 <mennucc1@debian.org>  Mon, 22 Feb 2010 21:59:03 +0100
+
+xdelta3 (0s.dfsg-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- A Mennucc1 <mennucc1@debian.org>  Mon, 19 Nov 2007 13:37:26 +0100
+
+xdelta3 (0q.dfsg-2) unstable; urgency=low
+
+  * Bug fix: "xdelta3: FTBFS: Not using -fPIC to create shared object.",
+    thanks to Kurt Roeckx (Closes: #439656).
+
+ -- A Mennucc1 <mennucc1@debian.org>  Sun, 26 Aug 2007 16:06:58 +0200
+
+xdelta3 (0q.dfsg-1) unstable; urgency=low
+
+  * Initial Release  (Closes: #433774)
+
+ -- A Mennucc1 <mennucc1@debian.org>  Thu, 26 Jul 2007 14:43:12 +0200
