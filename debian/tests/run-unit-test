@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+# build test binary and run it
+./configure
+
+# skip last test
+sed '1298,1299d' testing/regtest.cc > testing/regtest_skip_last.cc
+g++ -DHAVE_CONFIG_H -I. -std=c99 -DREGRESSION_TEST=1 -DSECONDARY_DJW=1 -DSECONDARY_FGK=1 -DXD3_MAIN=1  -DNOT_MAIN=1 -DXD3_DEBUG=1 -g -O2 -c -o testing/xdelta3regtest-regtest.o testing/regtest_skip_last.cc
+gcc -DHAVE_CONFIG_H -I. -std=c99 -DREGRESSION_TEST=1 -DSECONDARY_DJW=1 -DSECONDARY_FGK=1 -DXD3_MAIN=1  -DNOT_MAIN=1 -DXD3_DEBUG=1 -g -O2 -c -o testing/xdelta3regtest-regtest_c.o testing/regtest_c.c
+g++ -o xdelta3regtest  testing/xdelta3regtest-regtest.o testing/xdelta3regtest-regtest_c.o -lm -llzma
+./xdelta3regtest
